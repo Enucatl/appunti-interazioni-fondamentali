@@ -1,0 +1,248 @@
+%        File: appunti.interazioni.fondamentali.tex
+%     Created: lun nov 21 03:00  2011 C
+% Last Change: lun nov 21 03:00  2011 C
+%
+\documentclass[italian,a4paper]{article}
+\usepackage{babel}
+\usepackage{feynmf}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{mathrsfs}
+\usepackage{nicefrac}
+\usepackage[text={6in,9in},centering]{geometry}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage[bf,footnotesize]{caption}
+\frenchspacing
+\pagestyle{plain}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}[section]
+
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\lagr}{\ensuremath{\mathscr{L}}}
+\newcommand{\dimu}{\ensuremath{\partial_{\mu}}}
+\newcommand{\Dimu}{\ensuremath{D_{\mu}}}
+\newcommand{\dinu}{\ensuremath{\partial_{\nu}}}
+\newcommand{\Dinu}{\ensuremath{D_{\nu}}}
+\renewcommand{\leq}{\leqslant}
+
+\title{Teoria delle interazioni fondamentali}
+\author{Matteo Abis}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Teorie di gauge}
+\begin{definition}[Teoria di gauge] una teoria quantistica di campi
+    invariante sotto trasformazioni locali di un gruppo di Lie, detto gruppo
+    \emph{di gauge}. Le trasformazioni sono locali se i parametri dipendono
+    dal punto dello spaziotempo.
+\end{definition}
+
+\subsection{Prototipo: l'elettrodinamica quantistica}
+\begin{description}
+    \item[campi:] un campo spinoriale $\psi(x)$, un campo vettoriale
+        $A^{\mu}(x)$;
+    \item[trasformazioni di gauge:] sotto l'azione degli elementi del gruppo
+        di gauge $U(1)$ i campi trasformano come
+        \begin{align*}
+            \psi'(x) &= e^{-ie\alpha(x)}\psi(x)\\
+            A^{\mu'}(x) &= A^{\mu}(x) + \dimu \alpha(x);
+        \end{align*}
+    \item[rinormalizzabilit\`a:] compaiono nella lagrangiana soltanto
+        termini con dimensione $d \leq 4$.
+\end{description}
+
+La lagrangiana pi\`u generale compatibile con questi requisiti \`e dunque:
+\begin{equation*}
+    \mathscr{L_{\text{QED}}} = -\dfrac{1}{4}F_{\mu\nu}F^{\mu\nu} + i
+    \bar{\psi}\gamma^{\mu}(\dimu + i e A_{\mu})\psi - m
+    \bar{\psi}\psi
+\end{equation*}
+
+\subsection{Teorie di gauge non abeliane}
+Discutiamo nel dettaglio la costruzione di una generica teoria di gauge,
+seguendo gli stessi passi che ci hanno portato alla formulazione
+dell'elettrodinamica quantistica. \`E necessario innanzitutto identificare i
+componenti fondamentali della teoria.
+
+\begin{description}
+    \item[gruppo di gauge $G$:] deve essere un
+        \begin{itemize}
+            \item gruppo di Lie. Sia $n$ la sua dimensione;
+            \item compatto, perch\'e le rappresentazioni siano unitarie;
+            \item semplice, ovvero senza sottogruppi invarianti non banali.
+                Questa richiesta non \`e fondamentale e sar\`a eliminata in
+                seguito.
+        \end{itemize}
+    \item[campi di spin \nicefrac{1}{2} e spin $0$:] genericamente indicati
+        con il multipletto $\varphi$.
+    \item[propriet\`a di trasformazione dei campi: ] il multipletto dei
+        campi deve trasformare come una rappresentazione $R$ del gruppo
+        $G$. Detti $t^{a}_{R}$ ($a = 1, \dots, n$) i generatori del
+        gruppo in tale rappresentazione, e $\alpha_a$  i parametri della
+        trasformazione
+        \begin{equation*}
+            \varphi'(x) = \Omega\varphi = e^{-i \alpha_a t^{a}_{R}}\varphi(x).
+        \end{equation*}
+        \`E talvolta utile considerare trasformazioni infinitesime
+        \begin{equation*}
+            \delta\varphi =   -i \alpha_a t^{a}_{R} \varphi.
+        \end{equation*}
+        Introduciamo infine le costanti di struttura dell'algebra di Lie
+        $f^{ab}_{c}$
+        \begin{equation*}
+            [t^{a}, t^{b}] = if^{ab}_{c}t^{c}
+        \end{equation*}
+\end{description}
+
+Una volta specificati gli ingredienti, la teoria segue immediatamente
+dall'applicazione di una procedura quasi meccanica:
+\begin{enumerate}
+    \item determinazione della lagrangiana $\lagr(\varphi,
+        \partial\varphi)$ pi\`u generale invariante per il gruppo $G$ sotto
+        trasformazioni globali, ovvero indipendenti dal punto dello
+        spaziotempo;
+    \item promozione delle trasformazioni globali in trasformazioni locali.
+        A questo punto i termini con le derivate non trasformano pi\`u come
+        i campi e la lagrangiana non \`e pi\`u invariante:
+        \begin{equation}
+            (\dimu\varphi)' = (\dimu \Omega)\varphi +
+            \Omega(\dimu\varphi)\neq \Omega(\dimu \varphi).
+            \label{eq:trasformazione_derivata}
+        \end{equation}
+        Si introduce dunque una \emph{derivata covariante}, che trasforma
+        come i campi, $\Dimu$
+        \begin{equation*}
+            \Dimu \varphi = (\dimu + i A_{a\mu}t^{a})\varphi
+        \end{equation*}
+        dove abbiamo introdotto un campo vettoriale reale \emph{di gauge} $A_\mu = i A_{a\mu}t^{a}$,
+        che \`e un elemento dell'algebra di Lie del gruppo $G$. Vogliamo
+        infatti che questo termine cancelli il primo addendo
+        della~\eqref{eq:trasformazione_derivata}, che \`e un elemento
+        dell'algebra di Lie.
+        Imponendo quindi la legge di trasformazione gi\`a valida per i campi
+        \begin{equation*}
+            (\Dimu \varphi)' = \Omega \Dimu \varphi\\
+        \end{equation*}
+        \begin{equation*}
+            (\dimu + A'_{\mu})\Omega \varphi = (\dimu \Omega)\varphi +
+            \Omega (\dimu \varphi) + A'_\mu\Omega\varphi = \Omega(\dimu
+            \varphi) + \Omega A_\mu \varphi\\
+        \end{equation*}
+        \begin{equation*}
+            (A'_\mu\Omega - \Omega A_\mu + \dimu \Omega)\varphi = 0
+        \end{equation*}
+        otteniamo la legge di trasformazione per i campi di gauge,
+        moltiplicando a destra per $\Omega^{-1}$:
+        \begin{equation}
+            A_{\mu}' = \Omega A_\mu \Omega^{-1} - (\dimu \Omega)
+            \Omega^{-1}.
+            \label{eq:trasformazione_campi_gauge}
+        \end{equation}
+
+        La~\eqref{eq:trasformazione_campi_gauge} si pu\`o capire meglio in
+        termini dei campi $A_{a\mu}$ scrivendola per trasformazioni
+        infinitesime:
+        \begin{align}
+            i A'_{a\mu}t^a &= (1 - i \alpha_b t^{b}) A_{c\mu}t^{c}(1 + i
+            \alpha_b t^{b}) - [\dimu(1 - i \alpha_a t^{a})(1 + \cdots)]\nonumber\\
+            &= i A_{a\mu}t^a + \alpha_a A_{c\mu}[t^b, t^c] + i \dimu \alpha_a
+            t^a\nonumber\\
+            &= i(A_{a\mu} + \dimu \alpha_a)t^a + i f^{bc}_a t^a\nonumber\\
+            A'_{a\mu} &= A_{a\mu} + \dimu \alpha_a + f^{bc}_a \alpha_b
+            A_{c\mu}.\label{eq:trasformazione_infinitesima_gauge}
+        \end{align}
+        Vediamo dunque che, rispetto al caso abeliano dell'elettrodinamica
+        quantistica, si introduce un nuovo termine nella
+        trasformazione dei campi di gauge di teorie non abeliane.
+        Tecnicamente, i campi di gauge trasformano nella rappresentazione
+        aggiunta di $G$, i cui generatori sono i $(t^b_A)_a^c = i f_a^{bc}$.
+        \begin{align*}
+            \delta \varphi &= -i (t_R^a)\alpha_a\varphi &\text{campi di materia}\\
+            \delta A_{a\mu} &= -i (t_A^b)_a^c \alpha_b A_{c\mu} &\text{campi di gauge.}
+        \end{align*}
+        Poich\'e i campi di gauge trasformano in modo non banale sotto
+        l'azione del gruppo, essi trasportano una carica.
+        La lagrangiana cos\`i ottenuta $\lagr(\varphi, \Dimu \varphi)$
+        \`e ora invariante per trasformazioni locali.
+    \item si completa la lagrangiana con un termine cinetico per i campi di
+        gauge, analogamente al termine $F_{\mu\nu}F^{\mu\nu}$ in QED.
+
+        Nel caso non abeliano:
+        \begin{align*}
+            ([\Dimu, \Dinu]\varphi)' &= \Omega [\Dimu, \Dinu]\varphi = \Omega [\Dimu, \Dinu]
+            \Omega^{-1}\varphi'\\
+            [\Dimu, \Dinu]\varphi &= (\dimu + A_\mu)(\dinu + A_\nu) \varphi -
+            (\mu \leftrightarrow \nu)\\
+            &= \underbrace{\dimu \dinu \varphi + A_\nu(\dimu \varphi) + A_\mu(\dinu
+            \varphi)}_{\text{simmetrico, si cancella}} + (\dimu A_\nu)\varphi + A_\mu
+            A_\nu \varphi - (\mu \leftrightarrow \nu)\\
+            &= \underbrace{\{ (\dimu A_\nu - \dinu A_\mu) + [A_\mu, A_\nu]
+            \}}_{\mathop{:}= F_{\mu\nu}} \varphi\\
+            F_{\mu\nu}' = \Omega F_{\mu\nu} \Omega^{-1}
+        \end{align*}
+        O, in termini dei campi $A_{a\mu}$
+        \begin{equation}
+            F_{a\mu\nu} = \dimu A_{a\nu} - \dinu A_{a\mu} - f^{bc}_a
+            A_{b\mu}A_{c\nu}.
+            \label{eq:fmunu}
+        \end{equation}
+        Possiamo ora inserire un termine cinetico invariante di gauge e
+        definito positivo. Questo perch\'e vogliamo che l'hamiltoniana abbia
+        un minimo. Tale termine sar\`a proporzionale, con una costante
+        $k$ alla traccia
+        \begin{equation*}
+            k \tr(F_{\mu\nu}F^{\mu\nu}) = -k F_{a\mu\nu}F^{\mu\nu}_b \tr(t^a
+            t^b)
+        \end{equation*}
+        
+        Per un generico gruppo compatto $K^{ab} = \tr(t^a_R t^b_R)$
+        \`e definita positiva. Infatti $K^{ab}u_a u_b = \tr( (t^a_R u_a)^2)
+        \geq 0$ perch\'e i generatori sono hermitiani.
+
+        Scegliamo allora la base in cui $K^{ab} = C\delta^{ab}$ \`e diagonale e multiplo
+        dell'identit\`a. Infine, per analogia con la QED, fissiamo la
+        costante $k = 1/4C$.
+        \begin{align*}
+            -k F_{a\mu\nu}F^{\mu\nu}_b \tr(t^a t^b) &= -kC
+            F_{a\mu\nu}F^{a\mu\nu}\\
+            &= -\dfrac{1}{4}\{ (\dimu A_{a\nu} - \dinu A_{a\mu})
+            (\dimu A^{a\nu} - \dinu A^{a\mu}) + \underbrace{\cdots}_{\text{parte non
+            abeliana}}\}
+        \end{align*}
+\end{enumerate}
+
+Siamo pronti per scrivere la lagrangiana pi\`u generale per una teoria di
+gauge, ora che abbiamo una parte invariante locale sotto il gruppo $G$ e un
+termine cinetico per i nuovi campi vettoriali. Possiamo ancora fissare il
+peso relativo $g^{2}$ di questi due termini.
+\begin{equation*}
+    \lagr = \lagr(\varphi, \Dimu \varphi) -
+    \dfrac{1}{4g^2}F_{a\mu\nu}F^{a\mu\nu}
+\end{equation*}
+Questo peso relativo ha il significato di costante di accoppiamento tra i
+campi $\varphi$ a spin $0$ e $\nicefrac{1}{2}$ e i campi vettoriali. Infatti
+ridefinendo i campi $A_\mu$:
+\begin{align*}
+    A_{a\mu} &\longrightarrow g A_{a\mu}\\
+    \lagr & \longrightarrow \lagr(\varphi, \Dimu'\varphi) -
+    \dfrac{1}{4}F'_{a\mu\nu}F^{'\mu\nu}\\
+    &\text{dove}\\
+    \Dimu'\varphi &= (\dimu + i g A_{a\mu} t^{a})\varphi\\
+    F'_{a\mu\nu} &= \dimu A_{a\nu} - \dinu A_{a\mu} - gf^{bc}_a
+    A_{b\mu}A_{c\nu}
+\end{align*}
+Quest'ultimo termine mette anche in evidenza il fatto che, in una teoria non
+abeliana, compaiono dei termini di interazione tra bosoni di gauge.
+\begin{figure}[h]
+    \begin{center}
+        \input{3bos}
+    \end{center}
+    \caption{Interazione a tre bosoni}
+    \label{fig:3bos}
+\end{figure}
+\end{document}
+
+
