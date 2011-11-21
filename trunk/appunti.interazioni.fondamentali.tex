@@ -101,7 +101,7 @@ Una volta specificati gli ingredienti, la teoria segue immediatamente
 dall'applicazione di una procedura quasi meccanica:
 \begin{enumerate}
     \item determinazione della lagrangiana $\lagr(\varphi,
-        \partial\varphi)$ pi\`u generale invariante per il gruppo $G$ sotto
+        \dimu\varphi)$ pi\`u generale invariante per il gruppo $G$ sotto
         trasformazioni globali, ovvero indipendenti dal punto dello
         spaziotempo;
     \item promozione delle trasformazioni globali in trasformazioni locali.
@@ -239,10 +239,51 @@ abeliana, compaiono dei termini di interazione tra bosoni di gauge.
 \begin{figure}[h]
     \begin{center}
         \input{3bos}
+        \input{4bos}
     \end{center}
-    \caption{Interazione a tre bosoni}
+    \caption{Interazioni a tre e quattro bosoni, che derivano dai nuovi
+    termini nella lagrangiana per teorie non abeliane.}
     \label{fig:3bos}
 \end{figure}
+\subsection{Esempio: la cromodinamica quantistica}
+\begin{description}
+    \item[gruppo:] $G = SU(3)$
+    \item[campi e trasformazioni:] spinori di Dirac $q$ che trasformano con la
+        rappresentazione fondamentale $3$ di $SU(3)$. Quindi $q$ \`e un
+        oggetto di dimensione $3$ e possiamo scrivere esplicitamente
+        l'indice \emph{di colore} $c = 1, 2, 3$. 
+        \begin{equation*}
+            q_c' = e^{-i \alpha_a \lambda^a}q_c.
+        \end{equation*} I generatori $\lambda_a$ sono le otto matrici di
+        Gell-Mann.
+\end{description}
+Con la procedura ora descritta si ricava subito la lagrangiana della QCD:
+\begin{enumerate}
+    \item scriviamo la lagrangiana pi\`u generale con invarianza globale
+        \begin{equation*}
+            \lagr = i \bar{q_\alpha}\gamma^\mu\dimu q_\alpha - m
+            \bar{q_\alpha}q_\alpha;
+        \end{equation*}
+    \item rendiamo l'invarianza locale introducendo la derivata covariante e
+        i campi di gauge $G_{a\mu}$:
+        \begin{equation*}
+            \Dimu q = (\dimu + i g_s G_{a\mu}\lambda^a)q
+        \end{equation*}
+\item completando con i termini cinetici:
+    \begin{equation*}
+        \lagr = - \dfrac{1}{4}G_{a\mu\nu}G^{a\mu\nu} + i \bar q
+        \gamma^\mu(\dimu + i g_s G_{a\mu}\lambda^a)q - m \bar q q
+    \end{equation*}
+\item resta solo da estendere al caso di sei sapori di quark $f = u$,
+    $d$,\dots,$t$.
+    \begin{equation*}
+        \lagr_{\text{QCD}} = - \dfrac{1}{4}G_{a\mu\nu}G^{a\mu\nu} + \sum_f[i
+        \bar q_f
+        \gamma^\mu(\dimu + i g_s G_{a\mu}\lambda^a)q_f - m \bar q_f q_f]         
+    \end{equation*}
+\end{enumerate}
 \end{document}
-
-
+\section{Rottura spontanea di simmetria}
+\subsection{Il teorema di Goldstone}
+\subsection{Il meccanismo di Higgs}
+\section{La lagrangiana della teoria elettrodebole}

@@ -3,6 +3,8 @@ main : appunti.interazioni.fondamentali.tex
 	latex appunti.interazioni.fondamentali || true
 	mf -interaction nonstopmode 3bos || true
 	mf-nowin -progname=mf '\mode:=localfont; nonstopmode;' input 3bos || true
+	mf -interaction nonstopmode 4bos || true
+	mf-nowin -progname=mf '\mode:=localfont; nonstopmode;' input 4bos || true
 	latex appunti.interazioni.fondamentali
 	dvips appunti.interazioni.fondamentali.dvi
 	ps2pdf appunti.interazioni.fondamentali.ps
