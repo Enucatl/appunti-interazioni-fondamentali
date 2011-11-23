@@ -16,8 +16,9 @@
 \frenchspacing
 \pagestyle{plain}
 
+\newtheorem*{theorem}{Teorema}
 \theoremstyle{definition}
-\newtheorem{definition}{Definizione}[section]
+\newtheorem*{definition}{Definizione}
 
 \DeclareMathOperator{\tr}{tr}
 \newcommand{\lagr}{\ensuremath{\mathscr{L}}}
@@ -37,7 +38,7 @@
 \begin{definition}[Teoria di gauge] una teoria quantistica di campi
     invariante sotto trasformazioni locali di un gruppo di Lie, detto gruppo
     \emph{di gauge}. Le trasformazioni sono locali se i parametri dipendono
-    dal punto dello spaziotempo.
+    dal punto dello spazio-tempo.
 \end{definition}
 
 \subsection{Prototipo: l'elettrodinamica quantistica}
@@ -103,7 +104,7 @@ dall'applicazione di una procedura quasi meccanica:
     \item determinazione della lagrangiana $\lagr(\varphi,
         \dimu\varphi)$ pi\`u generale invariante per il gruppo $G$ sotto
         trasformazioni globali, ovvero indipendenti dal punto dello
-        spaziotempo;
+        spazio-tempo;
     \item promozione delle trasformazioni globali in trasformazioni locali.
         A questo punto i termini con le derivate non trasformano pi\`u come
         i campi e la lagrangiana non \`e pi\`u invariante:
@@ -282,8 +283,175 @@ Con la procedura ora descritta si ricava subito la lagrangiana della QCD:
         \gamma^\mu(\dimu + i g_s G_{a\mu}\lambda^a)q_f - m \bar q_f q_f]         
     \end{equation*}
 \end{enumerate}
-\end{document}
 \section{Rottura spontanea di simmetria}
 \subsection{Il teorema di Goldstone}
+Con la rottura spontanea di una simmetria globale in una teoria quantistica
+di campi, compaiono particelle di spin $0$ e massa nulla, detti bosoni di
+Goldstone.
+\subsection*{Esempio: campo scalare complesso}
+La lagrangiana per il campo scalare complesso, con una simmetria globale
+$U(1)$ \`e:
+\begin{align*}
+    \lagr &= (\partial_\mu \varphi)^\dagger (\partial^\mu \varphi) -
+    V(|\varphi|^2)\\
+    &= (\partial_\mu \varphi)^\dagger (\partial^\mu \varphi) -
+    m^2\varphi^\dagger\varphi - \lambda (\varphi^\dagger \varphi)^2
+\end{align*}
+Dove $\lambda > 0$ perch\'e l'energia abbia un minimo. Ora, con $m^2 > 0$
+otteniamo la solita teoria del campo scalare complesso, mentre il caso
+$m^2 < 0$ \`e pi\`u interessante.
+
+Consideriamo infatti il caso $m^2 < 0$.
+Scriviamo il campo con le sue componenti reali. In termini di queste
+componenti, la simmetria $U(1)$ diventa una simmetria per rotazioni $SO(2)$.
+\begin{align*}
+    \varphi &= \dfrac{1}{\sqrt{2}}(\varphi_1 + i \varphi_2)\\
+    \begin{pmatrix}
+        \varphi_1'\\
+        \varphi_2'
+    \end{pmatrix} &= 
+    \begin{pmatrix}
+        \cos \alpha & \sin \alpha \\
+        -\sin \alpha & \cos \alpha
+    \end{pmatrix}
+    \begin{pmatrix}
+        \varphi_1\\
+        \varphi_2
+    \end{pmatrix}
+\end{align*}
+Cerchiamo i minimi dell'hamiltoniana $\mathscr H = |\dot\varphi|^2 + |\nabla
+\varphi|^2 + V(|\varphi|^2)$. La parte con le derivate si annulla per
+$\varphi$ costante, cerchiamo quindi i minimi del potenziale.
+\begin{align*}
+    V &=\dfrac{1}{2}(\varphi_1^2 + \varphi_2^2) +
+    \dfrac{\lambda}{4}(\varphi_1^2 + \varphi_2^2)^2\\
+    \dfrac{\partial V}{\partial \varphi_i} &= m^2 \varphi_i ^ 2 +
+    \lambda(\varphi_1^2 + \varphi_2^2)\varphi_i\\
+    &= \varphi_i (m^2 + \lambda(\varphi_1^2 + \varphi_2^2)).
+\end{align*}
+Quindi le derivate si annullano per 
+\begin{enumerate}
+    \item $\varphi_1 = \varphi_2 = 0$
+    \item $\varphi_1^2 + \varphi_2^2 = - \dfrac{m^2}{\lambda} = \mathop: v$
+\end{enumerate}
+Calcolando la matrice delle derivate
+seconde si verifica facilmente che solo la seconda possibilit\`a corrisponde
+a un minimo, e che gli autovalori in questo caso sono $0$ e $1$. Inoltre,
+parametrizziamo i campi attorno al minimo
+\begin{align*}
+    v_1 &=v \cos \theta\\
+    v_2 &=v \sin \theta.
+\end{align*}
+Scegliendo un minimo abbiamo una rottura spontanea di simmetria. Espandiamo
+la lagrangiana intorno a questo minimo:
+\begin{equation*}
+    V = V(2.)
+    + \underbrace{\dfrac{\partial V}{\partial \varphi_1}\rvert_{2.}(\varphi_1 - v_1)
+    + \dfrac{\partial V}{\partial \varphi_2}\rvert_{2.}(\varphi_2 -
+    v_2)}_{= 0\text{ nel minimo}}
+    + \dfrac{1}{2}\dfrac{\partial^2 V}{\partial \varphi_i\partial \varphi_j}|_{2.}
+    \underbrace{(\varphi_i - v_i)}_{=\mathop:\varphi_i'}\underbrace{(\varphi_j -
+    v_j)}_{=\mathop:\varphi_j'}
+\end{equation*}
+Con le ridefinizioni dei campi $\varphi_i'$ possiamo scrivere la lagrangiana
+come
+\begin{align*}
+    \lagr &= 
+    \dfrac{1}{2}\partial_\mu \varphi_1'\partial^\mu \varphi_1' +
+    \dfrac{1}{2}\partial_\mu \varphi_2'\partial^\mu \varphi_2' +
+    \dfrac{1}{2}2\lambda v^2
+    \begin{pmatrix}
+        \varphi_1' & \varphi_2'
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos^2 \theta & \cos\theta \sin\theta\\
+        \cos\theta \sin\theta & \sin^2 \theta
+    \end{pmatrix}
+    \begin{pmatrix}
+        \varphi_1'\\
+        \varphi_2'
+    \end{pmatrix}\\
+    &= 
+    \dfrac{1}{2}\partial_\mu \varphi_1'\partial^\mu \varphi_1' +
+    \dfrac{1}{2}\partial_\mu \varphi_2'\partial^\mu \varphi_2' +
+    \lambda v^2(\cos\theta \varphi_1' + \sin\theta \varphi_2')^2
+\end{align*}
+Con un cambio di variabili finale possiamo ridefinire i campi e la
+lagrangiana con
+\begin{align*}
+    \begin{pmatrix}
+        \varphi_1\\
+        \varphi_2
+    \end{pmatrix} &= 
+    \begin{pmatrix}
+        \cos \theta & \sin \theta \\
+        -\sin \theta & \cos \theta
+    \end{pmatrix}
+     \begin{pmatrix}
+        \varphi_1'\\
+        \varphi_2'
+    \end{pmatrix}\\
+\lagr &=
+    \dfrac{1}{2}(\partial_\mu \varphi_1\partial^\mu \varphi_1 +
+    \partial_\mu \varphi_2\partial^\mu \varphi_2) -
+    \lambda v^2 \varphi_1^2
+\end{align*}
+In questi termini, la lagrangiana descrive due campi scalari: $\varphi_1$ con massa
+$m_1 = 2\lambda v^2$ e $\varphi_2$ con massa nulla, detto bosone di
+Goldstone. Possiamo ora enunciare il teorema in generale.
+\begin{theorem}[di Goldstone]
+    \label{teorema_goldstone}
+    \hspace*{\fill}
+    \begin{itemize}
+        \item Sia $\lagr(\varphi, \chi)$ una lagrangiana con campi reali di spin 0
+    $\varphi$ e campi di spin \nicefrac{1}{2} $\chi$;
+        \item $\lagr$ invariante globale sotto l'azione di un gruppo $G$.
+        \item $\varphi_i = v_i$ configurazione costante che minimizza
+            l'energia;
+        \item infine diciamo $H < G$ la simmetria residua, ovvero il
+            sottogruppo di $G$ che lascia invariata la configurazione di
+            equilibrio.
+    \end{itemize}
+    Allora la matrice delle derivate seconde di $V$ ha esattamente
+    $\dim(G) - \dim(H)$ autovalori nulli, che corrispondono a particelle di
+    massa nulla e spin $0$ (bosoni di Goldstone).
+    \begin{proof}
+        La lagrangiana \`e:
+        \begin{equation*}
+            \lagr = \dfrac{1}{2}\partial_\mu \varphi_i\partial^\mu
+            \varphi_i- V(\varphi) + \underbrace{\cdots}_{\text{dipendenza da
+            } \chi}
+        \end{equation*}
+        e, nella configurazione di minimo vale:
+        \begin{equation*}
+            0 = \delta V = \dfrac{\partial V}{\partial \varphi_i}\delta \varphi_i = 
+            \dfrac{\partial V}{\partial \varphi_i}(-i \alpha_a
+            t^a_{ij}\varphi_j) \quad \forall \alpha_a
+        \end{equation*}
+        e deve essere anche nulla l'espressione:
+        \begin{equation*}
+             \dfrac{\partial V}{\partial \varphi_i}t^a_{ij}\varphi_j = 0.
+        \end{equation*}
+        Derivando rispetto a $\varphi_k$
+        \begin{equation*}
+            \dfrac{\partial^2 V}{\partial\varphi_i
+            \partial\varphi_k}t^a_{ij}\varphi_j +
+            \underbrace{\dfrac{\partial V}{\partial \varphi_i}}_{=0\text{
+            nel minimo}}t^a_{ik} = 0
+        \end{equation*}
+        Quindi rimane:
+        \begin{equation*}
+            \dfrac{\partial^2 V}{\partial\varphi_i
+            \partial\varphi_k}t^a_{ij}v_j = 0 
+        \end{equation*}
+        da cui si legge che $t^a_{ij}v_j$ \`e un autovettore relativo
+        all'autovalore 0. Contiamo correttamente gli autovettori indipendenti. Ordiniamo i generatori mettendo prima i
+        generatori del gruppo $H$: $t^a_{ij} = \{t^1,\ldots,t^{\dim(H)},
+        \ldots t^{\dim(G)} \}$.
+
+    \end{proof}<++>
+\end{theorem}
+All
 \subsection{Il meccanismo di Higgs}
 \section{La lagrangiana della teoria elettrodebole}
+\end{document}
