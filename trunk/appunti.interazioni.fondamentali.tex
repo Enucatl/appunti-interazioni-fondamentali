@@ -246,7 +246,7 @@ abeliana, compaiono dei termini di interazione tra bosoni di gauge.
     termini nella lagrangiana per teorie non abeliane.}
     \label{fig:3bos}
 \end{figure}
-\subsection{Esempio: la cromodinamica quantistica}
+\subsection{Esempio: la cromodinamica quantistica}\label{qcd}
 \begin{description}
     \item[gruppo:] $G = SU(3)$
     \item[campi e trasformazioni:] spinori di Dirac $q$ che trasformano con la
@@ -449,9 +449,60 @@ Goldstone. Possiamo ora enunciare il teorema in generale.
         generatori del gruppo $H$: $t^a_{ij} = \{t^1,\ldots,t^{\dim(H)},
         \ldots t^{\dim(G)} \}$.
 
-    \end{proof}<++>
+        Se $a = 1,\ldots, \dim(H)$ allora $h = e^{-i \alpha_a t^a} \in H$ e,
+        per ipotesi, $hv = v$. Per una trasformazione infinitesima dunque
+        $(1 - i\alpha_a t^a) v = v$, da cui si legge $t^a v = 0.$.
+        Restano dunque $\dim(G) - \dim(H)$ autovettori non nulli linearmente
+        indipendenti.
+
+        La matrice delle derivate seconde del potenziale diventa ovviamente
+        la matrice di massa. Espandendo intorno alla configurazione di
+        equilibrio $\varphi_i = v_i$ e ridefinendo $\varphi_i' = \varphi_i -
+        v_i$, otteniamo le equazioni del moto:
+        \begin{equation*}
+            \left( \box \delta_{ij} + \dfrac{\partial^2 V}{\partial
+            \varphi_i \partial \varphi_j}|_{\varphi = v} \right) \varphi'_j
+            = 0
+        \end{equation*}
+        Da cui si vede che il sistema ha $\dim(G) - \dim(H)$ particelle a
+        spin e massa nulli, dette appunto bosoni di Goldstone.
+    \end{proof}
 \end{theorem}
-All
+\subsection*{Esempio: i mesoni pseudoscalari leggeri}
+Non sono mai stati osservati i bosoni di Goldstone a spin $0$ e massa nulla.
+Tuttavia la teoria si pu\`o applicare a un'approssimazione della QCD.
+Considerando solo i quark leggeri $q = (u, d, s)$, la lagrangiana ricavata nel paragrafo~\ref{qcd}:
+    \begin{equation*}
+        \lagr = - \dfrac{1}{4}G_{a\mu\nu}G^{a\mu\nu} + i \bar q
+        \gamma^\mu\Dimu q - \bar q m q
+    \end{equation*}
+Se trascuriamo le masse dei quark leggeri, otteniamo una lagrangiana
+invariante sotto un gruppo di simmetria pi\`u ampio. Infatti scompare
+l'unico termine che mescola le chiralit\`a \emph{left}e \emph{right}, che
+ora possono trasformare con due fasi indipendenti. Il gruppo diventa quindi
+$G = SU(3)_L \times SU(3)_R$.
+
+Tuttavia, non esistono multipletti dinamici con masse molto simili. Questo
+fa pensare che la simmetria sia spontaneamente rotta. Il ruolo dei campi
+scalari in questa teoria \`e giocato dai bilineari fermionici $\bar q q = \bar u u +
+\bar d d + \bar s s$.
+
+Una trattazione non perturbativa mostra in effetti che la configurazione di
+energia minima non si trova nell'origine $\langle 0 \vert \bar q q \vert 0
+\rangle \neq 0$. Qual \`e la simmetria residua $H$? Un elemento di questo
+sottogruppo dovrebbe lasciare invariato:
+\begin{equation*}
+    \langle 0 \vert \bar q_R q_L + \text{h.c.} \vert 0 \rangle
+    \overrightarrow{G} 
+    \langle 0 \vert \bar q_R \Omega^\dagger_R \Omega_L q_L + \text{h.c.}
+    \vert 0 \rangle.
+\end{equation*}
+Ci\`o accade se e solo se le fasi con cui trasformano le parti
+\emph{left} e \emph{right} sono uguali. $\alpha_{aL} = \alpha_{aR} =\mathop:
+\alpha_a$. Risulta dunque che il gruppo $H$ \`e $SU(3)$. Questo gruppo ha
+otto generatori, quindi la teoria avr\`a $8 + 8 - 8 = 8$ bosoni di Goldstone.
+Queste otto particelle con spin $0$ e massa piccola sono gli otto mesoni
+pseudoscalari leggeri $\pi$, $\mathrm{K}$ e $\eta$.
 \subsection{Il meccanismo di Higgs}
 \section{La lagrangiana della teoria elettrodebole}
 \end{document}
