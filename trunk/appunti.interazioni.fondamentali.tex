@@ -284,7 +284,7 @@ Con la procedura ora descritta si ricava subito la lagrangiana della QCD:
     \end{equation*}
 \end{enumerate}
 \section{Rottura spontanea di simmetria}
-\subsection{Il teorema di Goldstone}
+\subsection{Il teorema di Goldstone}\label{goldstone}
 Con la rottura spontanea di una simmetria globale in una teoria quantistica
 di campi, compaiono particelle di spin $0$ e massa nulla, detti bosoni di
 Goldstone.
@@ -504,5 +504,123 @@ otto generatori, quindi la teoria avr\`a $8 + 8 - 8 = 8$ bosoni di Goldstone.
 Queste otto particelle con spin $0$ e massa piccola sono gli otto mesoni
 pseudoscalari leggeri $\pi$, $\mathrm{K}$ e $\eta$.
 \subsection{Il meccanismo di Higgs}
+Il meccanismo di Higgs consente di dare massa ai bosoni di gauge attraverso
+la rottura spontanea di una simmetria continua \emph{locale}. In questo
+modo, la teoria conserva l'invarianza di gauge.
+\subsection*{Esempio: modello di Higgs abeliano}
+\`E la versione locale dell'esempio visto nel
+paragrafo~\ref{goldstone} per il teorema di Goldstone. Sia $\varphi$ un
+campo scalare complesso e $G = U(1)$ il gruppo di invarianza locale. Le
+trasformazioni sono dunque
+\begin{align*}
+    \varphi'(x) &= e^{-i \alpha(x)}\varphi(x)\\
+    A_\mu'(x) &= A_\mu(x) - \dfrac{1}{g}\partial_\mu \alpha(x).
+\end{align*}
+Ricordiamo anche la lagrangiana
+\begin{align*}
+    \lagr &= -\dfrac{1}{4}F_{\mu\nu}F^{\mu\nu} + (D_\mu\varphi)^\dagger(D^\mu
+    \varphi) - V(|\varphi|^2)\\
+    V &= m^2 \varphi^\dagger \varphi + \lambda (\varphi^\dagger \varphi)^2.
+\end{align*}
+Con gli stessi passaggi del caso globale, con $\lambda > 0$ e $m^2 <0$,
+troviamo la configurazione di minima energia, ovvero il valore di
+aspettazione del vuoto
+\begin{equation*}
+    \langle 0 \vert \varphi \vert 0 \rangle \mathop:= \langle \varphi
+    \rangle = \dfrac{v}{\sqrt{2}}e^{i\theta}
+\end{equation*}
+essendo $\langle A_\mu \rangle = 0$ per mantenere l'invarianza di Lorentz.
+Mandiamo tutti i minimi nell'origine delle nuove coordinate, usando una
+rappresentazione polare con un modulo e una fase (due campi reali):
+\begin{equation*}
+    \varphi(x) = \dfrac{v +
+    \sigma(x)}{\sqrt{2}}e^{i\theta}e^{i\dfrac{\xi(x)}{v}}
+\end{equation*}
+si vede che ho il minimo per $\sigma = \xi = 0$, e quindi $\varphi =
+v/\sqrt{2}e^{i\theta}$. Scriviamo la lagrangiana in termini di questi due
+nuovi campi:
+\begin{align*}
+    \varphi^\dagger \varphi &= \dfrac{(v + \sigma)^2}{2}\\
+    V &= \dfrac{m^2}{2}(v + \sigma)^2 + \dfrac{\lambda}{4}(v + \sigma)^4\\
+    \Dimu \varphi &= (\dimu + i g A_{\mu}) \dfrac{v +
+    \sigma}{\sqrt{2}}e^{i\theta}e^{i\frac{\xi}{v}}\\
+    &= e^{i\theta}e^{i\frac{\xi}{v}}
+    \left\{
+    \dfrac{1}{\sqrt{2}}\dimu \sigma 
+    + i g A_\mu \dfrac{v + \sigma}{\sqrt{2}}
+    + \dfrac{v + \sigma}{\sqrt{2}} i\dfrac{\dimu \xi}{v}\right\}\\
+    &= e^{i\theta}e^{i\frac{\xi}{v}}
+    \left\{
+    \dfrac{\dimu \sigma}{\sqrt{2}}
+    + i g \dfrac{v + \sigma}{\sqrt{2}} \left[ A_\mu + \dfrac{\dimu \xi}{gv}\right]
+    \right\}\\
+    \lagr &= -\dfrac{1}{4}F_{\mu\nu}F^{\mu\nu}
+    + \dfrac{1}{2}\partial_\mu \sigma \partial^\mu \sigma
+    + g^2 \dfrac{(v + \sigma)^2}{2}\left[ A_{\mu} + \dfrac{\dimu
+    \xi}{gv}\right]^2 - V(\sigma)
+\end{align*}
+Ridefiniamo $A_\mu = A_{\mu} + \dimu \xi / gv$. Non \`e una trasformazione
+di gauge perch\'e non coinvolge il campo $\varphi$.
+\begin{equation*}
+    \lagr =  -\dfrac{1}{4}F_{\mu\nu}F^{\mu\nu}
+    + \dfrac{1}{2}\partial_\mu \sigma \partial^\mu \sigma
+    + \dfrac{g^2}{2}(v + \sigma)^2 A_{\mu}A^{\mu} - V(\sigma)
+\end{equation*}
+Leggiamo la fisica da questa lagrangiana:
+\begin{itemize}
+    \item il campo $\xi$ \`e sparito, non fa parte della fisica;
+    \item \`e comparso un termine di massa per il campo $A_\mu$, con
+        $m_A^2 = g^2 v^2$;
+    \item $\xi$ \`e sparito ma la teoria ha lo stesso numero di gradi di
+        libert\`a di prima. Nel caso $m^2 > 0$ infatti, $\varphi$ e
+        $A_\mu$ trasportano ciascuno due gradi di libert\`a. Nel caso
+        $m^2 < 0$ invece $A_\mu$ ha una massa e quindi tre gradi di
+        libert\`a, con un solo grado di libert\`a per il campo reale
+        $\sigma$.
+\end{itemize}
+
+Notiamo che con la quantizzazione della teoria ci sono delle differenze
+rispetto al caso classico. Infatti lo stato di vuoto della teoria
+quantistica $\vert 0 \rvert$, che corrisponde al minimo dell'energia, \`e
+unico. Al contrario, nella teoria classica abbiamo infiniti minimi
+raggiungibili con trasformazioni di $G$. Quindi dovremmo avere $U\vert 0
+\rvert \neq \vert 0 \rvert$ e quindi la carica del vuoto sarebbe $Q \vert 0
+\rvert \neq 0$.
+
+Questa apparente contraddizione si risolve osservando che nella teoria
+quantistica il segnale di rottura spontanea di simmetria \`e molto
+pi\`u sottile: non si pu\`o infatti costruire l'operatore $Q$ perch\'e
+$\int d^3 x j^0 \rightarrow \infty$.
 \section{La lagrangiana della teoria elettrodebole}
+\subsection{Parte bosonica}
+\begin{description}
+    \item[gruppo di gauge:]
+$G = SU(2) \times U(1)$. I generatori $T^1,T^2, T^3, Y$ soddisfano alle regole di commutazione
+\begin{align*}
+    [T^a, T^b] &= i \varepsilon^{abc}T^c\\
+    [T^a, Y] &= 0.
+\end{align*}
+\item[campi di materia a spin $0$:] devono realizzare la rottura spontanea
+    di $SU(2)\times U(1)$ in modo da dare massa ai bosoni $\mathrm{W^{\pm}}$ e
+    $\mathrm{Z}$, con un'invarianza residua $U(1)_{em}$ in modo da lasciare
+    il fotone a massa nulla.
+
+    La scelta pi\`u semplice \`e un doppietto complesso di Higgs con
+    ipercarica $Y = \nicefrac{1}{2}$, che trasforma sotto $G$ come la
+    rappresentazione $(2, \nicefrac{1}{2})$:
+    \begin{align*}
+        \varphi &= 
+        \begin{pmatrix}
+            \varphi^+ \\
+            \varphi^0
+        \end{pmatrix}\\
+        \varphi' &= e^{-i \alpha_a \frac{\sigma^a}{2}}e^{-i\beta
+        \frac{1}{2}}\varphi
+    \end{align*}
+    Non \`e ora restrittivo, percorrendo le valli di minimo, raggiungere un
+    minimo in cui $\langle \varphi \rangle = (0, v/\sqrt{2})$. Verifichiamo
+    che c'\`e un'invarianza residua
+\end{description}<++>
+
+I campi 
 \end{document}
