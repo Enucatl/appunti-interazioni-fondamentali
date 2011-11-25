@@ -22,6 +22,7 @@
 
 \DeclareMathOperator{\tr}{tr}
 \newcommand{\lagr}{\ensuremath{\mathscr{L}}}
+\newcommand{\lagrbos}{\ensuremath{\mathscr{L}_{\text{bos}}}}
 \newcommand{\dimu}{\ensuremath{\partial_{\mu}}}
 \newcommand{\Dimu}{\ensuremath{D_{\mu}}}
 \newcommand{\dinu}{\ensuremath{\partial_{\nu}}}
@@ -62,7 +63,7 @@ La lagrangiana pi\`u generale compatibile con questi requisiti \`e dunque:
     \bar{\psi}\psi
 \end{equation*}
 
-\subsection{Teorie di gauge non abeliane}
+\subsection{Teorie di gauge non abeliane}\label{teorie_di_gauge}
 Discutiamo nel dettaglio la costruzione di una generica teoria di gauge,
 seguendo gli stessi passi che ci hanno portato alla formulazione
 dell'elettrodinamica quantistica. \`E necessario innanzitutto identificare i
@@ -262,8 +263,8 @@ Con la procedura ora descritta si ricava subito la lagrangiana della QCD:
 \begin{enumerate}
     \item scriviamo la lagrangiana pi\`u generale con invarianza globale
         \begin{equation*}
-            \lagr = i \bar{q_\alpha}\gamma^\mu\dimu q_\alpha - m
-            \bar{q_\alpha}q_\alpha;
+            \lagr = i \bar{q}_c\gamma^\mu\dimu q_c - m
+            \bar{q}_c q_c;
         \end{equation*}
     \item rendiamo l'invarianza locale introducendo la derivata covariante e
         i campi di gauge $G_{a\mu}$:
@@ -534,14 +535,15 @@ Mandiamo tutti i minimi nell'origine delle nuove coordinate, usando una
 rappresentazione polare con un modulo e una fase (due campi reali):
 \begin{equation*}
     \varphi(x) = \dfrac{v +
-    \sigma(x)}{\sqrt{2}}e^{i\theta}e^{i\dfrac{\xi(x)}{v}}
+    \sigma(x)}{\sqrt{2}}e^{i\theta}e^{i\frac{\xi(x)}{v}}
 \end{equation*}
 si vede che ho il minimo per $\sigma = \xi = 0$, e quindi $\varphi =
-v/\sqrt{2}e^{i\theta}$. Scriviamo la lagrangiana in termini di questi due
+ve^{i\theta}/\sqrt{2}$. Scriviamo la lagrangiana in termini di questi due
 nuovi campi:
 \begin{align*}
     \varphi^\dagger \varphi &= \dfrac{(v + \sigma)^2}{2}\\
     V &= \dfrac{m^2}{2}(v + \sigma)^2 + \dfrac{\lambda}{4}(v + \sigma)^4\\
+    \\
     \Dimu \varphi &= (\dimu + i g A_{\mu}) \dfrac{v +
     \sigma}{\sqrt{2}}e^{i\theta}e^{i\frac{\xi}{v}}\\
     &= e^{i\theta}e^{i\frac{\xi}{v}}
@@ -554,6 +556,7 @@ nuovi campi:
     \dfrac{\dimu \sigma}{\sqrt{2}}
     + i g \dfrac{v + \sigma}{\sqrt{2}} \left[ A_\mu + \dfrac{\dimu \xi}{gv}\right]
     \right\}\\
+    \\
     \lagr &= -\dfrac{1}{4}F_{\mu\nu}F^{\mu\nu}
     + \dfrac{1}{2}\partial_\mu \sigma \partial^\mu \sigma
     + g^2 \dfrac{(v + \sigma)^2}{2}\left[ A_{\mu} + \dfrac{\dimu
@@ -619,8 +622,105 @@ $G = SU(2) \times U(1)$. I generatori $T^1,T^2, T^3, Y$ soddisfano alle regole d
     \end{align*}
     Non \`e ora restrittivo, percorrendo le valli di minimo, raggiungere un
     minimo in cui $\langle \varphi \rangle = (0, v/\sqrt{2})$. Verifichiamo
-    che c'\`e un'invarianza residua
-\end{description}<++>
+    che c'\`e un'invarianza residua. Per una trasformazione infinitesima
+    \begin{equation*}
+        (-i \alpha_a \dfrac{\sigma^a}{2} -i \beta \dfrac{1}{2})
+        \begin{pmatrix}
+            0 \\
+            v/\sqrt{2}
+        \end{pmatrix} = 
+        -\dfrac{i}{2}
+        \begin{pmatrix}
+            \alpha_3 + \beta & \alpha_1 -i \alpha_2\\
+            \alpha_1 + i \alpha_2 & -\alpha_3 + \beta
+        \end{pmatrix}
+        \begin{pmatrix}
+            0\\
+            v/\sqrt{2}
+        \end{pmatrix}
+        =
+        -\dfrac{iv}{2\sqrt{2}}
+        \begin{pmatrix}
+            \alpha_1 - i \alpha_2\\
+            -\alpha_3 + \beta
+        \end{pmatrix}
+    \end{equation*}
+    e tale variazione \`e nulla evidentemente se e solo se $\alpha_1 =
+    \alpha_2 = 0$ e $\alpha_3 = \beta =\mathop: \alpha$. Quindi c'\`e un
+    sottogruppo $U(1)$ che lascia invariata la configurazione di minimo. Il
+    generatore corrispondente \`e
+    \begin{equation*}
+        Q = T^3 + Y = \dfrac{\sigma^3}{2} + \dfrac{1}{2} = 
+        \begin{pmatrix}
+            1 & 0\\
+            0 & 0
+        \end{pmatrix}.
+    \end{equation*}
+\end{description}
+Dati questi ingredienti, con la procedura descritta nel
+paragrafo~\ref{teorie_di_gauge}, \`e automatico scrivere la lagrangiana. Ad
+ognuno dei generatori del gruppo corrisponde un campo di gauge, con la
+corrispondente legge di trasformazione:
+\begin{align*}
+    T_a &\rightarrow W_{a\mu}\\
+    Y &\rightarrow B_\mu\\
+    \\
+    \delta W_{a\mu} &= \varepsilon_{abc}\alpha^b W^c_\mu +
+    \dfrac{\dimu \alpha_a}{g}\\
+    \delta B_\mu &= \dfrac{\dimu \beta}{g'}.
+\end{align*}
+Scriviamo subito la lagrangiana
+\begin{align*}
+    \lagrbos &= -\dfrac{1}{4}W_{a\mu\nu}W^{a\mu\nu} -
+    \dfrac{1}{4}B_{\mu\nu}B^{\mu\nu} +
+    (D_\mu \varphi)^\dagger (D^\mu \varphi) - V(\varphi)\\
+    \\
+    \Dimu &= \dimu + i g W_{a\mu}\dfrac{\sigma^a}{2} + i
+    \dfrac{g'}{2}B_\mu\\
+    V(\varphi) &= \mu^2 \varphi^\dagger \varphi + \lambda (\varphi^\dagger
+    \varphi)^2
+\end{align*}
+Scegliamo, come nell'esempio, il minimo con $\langle \varphi \rangle = (0,
+v/\sqrt{2}$.
+Bisogna scegliere una parametrizzazione per $\varphi$ per leggere masse e
+accoppiamenti
+\begin{equation*}
+    \varphi(x) = e^{i\xi_a(x)\frac{\sigma^a}{v}}
+    \begin{pmatrix}
+        0\\
+        \dfrac{v + h(x)}{\sqrt{2}}
+    \end{pmatrix}.
+\end{equation*}
+Come nel caso abeliano, gli $\xi_a$ scompaiono, quindi scriviamo
+direttamente
+\begin{align*}
+    \varphi(x) &= 
+    \begin{pmatrix}
+        0 \\
+        \dfrac{v + h(x)}{\sqrt{2}}
+    \end{pmatrix}\\
+    V(\varphi) &= \dfrac{\mu^2}{2}(v + h)^2 + \dfrac{\lambda}{4}(v + h)^4\\
+    &= \text{cost.} + \underbrace{\lambda v^2 h^2}_{\text{termine di massa}} + \mathcal{O}(h^3)
+\end{align*}
+Da cui si legge subito che il bosone di Higgs ha una massa $m_h = 2\lambda
+v^2$. Il termine cinetico d\`a ora una massa ai bosoni vettori
+\begin{align*}
+    \Dimu &= \dimu + i g W_{a\mu}\dfrac{\sigma^a}{2} + i
+    \dfrac{g'}{2}B_\mu\\
+    \Dimu \varphi &= \left\{ \dfrac{\dimu h}{\sqrt{2}}
+    + i g W_{a\mu}\dfrac{\sigma^a}{2}\dfrac{v + h}{\sqrt{2}}
+    + i g' \dfrac{v + h}{2 \sqrt{2}} B_\mu \right\}
+    \begin{pmatrix}
+        0\\
+        1
+    \end{pmatrix}\\
+    &= \left\{ \dfrac{\dimu h}{\sqrt{2}}
+    + \dfrac{i}{2}\dfrac{v + h}{\sqrt{2}}(g W_{a\mu}\sigma^a + g' B_\mu) \right\}
+    \begin{pmatrix}
+        0\\
+        1
+    \end{pmatrix}\\
+\end{align*}<++>
 
-I campi 
+
 \end{document}
