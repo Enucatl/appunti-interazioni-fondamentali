@@ -17,6 +17,7 @@
 \pagestyle{plain}
 
 \newtheorem*{theorem}{Teorema}
+\newtheorem{exercise}{Esercizio}
 \theoremstyle{definition}
 \newtheorem*{definition}{Definizione}
 
@@ -720,7 +721,85 @@ v^2$. Il termine cinetico d\`a ora una massa ai bosoni vettori
         0\\
         1
     \end{pmatrix}\\
-\end{align*}<++>
+    \\
+    D_\mu \varphi^\dagger D^\mu \varphi &=
+    \dfrac{1}{2}\partial_\mu h
+    \partial^\mu h +
+    \underbrace{
+    \begin{pmatrix}
+        0 & 1
+    \end{pmatrix}
+    \dfrac{(v + h)^2}{8}
+    (g W_a \sigma^a + g' B)^2
+    \begin{pmatrix}
+        0\\
+        1
+    \end{pmatrix}
+    }_{\text{seleziona l'elemento } 2,2 \text{ della matrice}}\\
+    &= 
+    \dfrac{1}{2}\partial_\mu h
+    \partial^\mu h +
+    \dfrac{(v + h)^2}{8}
+    [g W_a \sigma^a + g' B]^2_{22}.
+\end{align*}
+Calcoliamo l'elemento di matrice richiesto
+\begin{align*}
+    [g W_a \sigma^a + g' B]^2_{22} &= 
+    \begin{pmatrix}
+        gW_3 + g'B & g(W_1 - iW_2)\\
+        g(W_1 + i W_2) & - g W_3 + g'B
+    \end{pmatrix}^2_{22}\\
+    &= 
+    \begin{pmatrix}
+        g (W_1 + i W_2) & - g W_3 + g'B
+    \end{pmatrix}
+    \begin{pmatrix}
+        g(W_1 - i W_2)\\
+        - g W_3 + g'B
+    \end{pmatrix}\\
+    &= g^2(W_1^2 + W_2^2) + (gW_3 - g'B)^2.
+\end{align*}
+\begin{definition}
+    [angolo di Weinberg]
+    Si definisce l'angolo $\theta$ di Weinberg con
+    \begin{equation*}
+        \tan \theta \mathop:= \dfrac{g'}{g}
+    \end{equation*}
+\end{definition}
+Introduciamo delle nuove combinazioni dei campi, con l'angolo di Weinberg
+\begin{align*}
+    W^{\pm}_\mu &= \dfrac{W_1 \mp i W_2}{\sqrt{2}}\\
+    Z_\mu &= \cos \theta W_{3\mu} - \sin \theta B_{\mu}\\
+    A_\mu &= \sin \theta W_{3\mu} + \cos \theta B_\mu
+\end{align*}
+In termini di questi quattro campi possiamo riscrivere:
+\begin{equation*}
+    D_\mu \varphi^\dagger D^\mu \varphi =
+    \dfrac{1}{2}\partial_\mu h \partial^\mu h +
+    \dfrac{g^2(v + h)^2}{4}
+    W_\mu^+W^{-\mu} +
+    (g^2 + g^{'2})
+    \dfrac{(v + h)^2}{8}
+    Z_\mu Z^\mu.
+\end{equation*}
+Da questa lagrangiana possiamo leggere le masse:
+\begin{align*}
+    m_W^2 &= \dfrac{g^2 v^2}{4}\\
+    m_Z^2 &= \dfrac{(g^2 + g^{'2})v^2}{4}\\
+    m_A^2 &= 0\\
+    m_H &= 2\lambda v^2
+\end{align*}
+Si noti che, come conseguenza diretta del fatto che il campo di Higgs
+trasforma come un doppietto, abbiamo una relazione tra le masse dei bosoni
+$m_W = m_Z \cos \theta$. Tale relazione \`e verificata con una precisione
+sperimentale del per mille.
+\begin{exercise}
+    Trovare le interazioni che derivano dalla lagrangiana e dimostrare che
+    vale
+    \begin{equation*}
+        g \sin \theta = g' \cos \theta = e.
+    \end{equation*}
+\end{exercise}
 
 
 \end{document}
