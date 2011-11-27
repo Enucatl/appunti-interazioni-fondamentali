@@ -5,6 +5,7 @@
 \documentclass[italian,a4paper]{article}
 \usepackage{babel}
 \usepackage{feynmf}
+\usepackage{booktabs}
 \usepackage{amssymb,amsmath,amsthm}
 \usepackage{mathrsfs}
 \usepackage{nicefrac}
@@ -28,6 +29,8 @@
 \newcommand{\Dimu}{\ensuremath{D_{\mu}}}
 \newcommand{\dinu}{\ensuremath{\partial_{\nu}}}
 \newcommand{\Dinu}{\ensuremath{D_{\nu}}}
+\newcommand{\zboson}{\ensuremath{\mathrm{Z}}}
+\newcommand{\wboson}{\ensuremath{\mathrm{W}}}
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\theta}{\vartheta}
 
@@ -36,6 +39,7 @@
 \date{\today}
 \begin{document}
 \maketitle
+\tableofcontents
 
 \section{Teorie di gauge}
 \begin{definition}[Teoria di gauge] una teoria quantistica di campi
@@ -51,8 +55,8 @@
     \item[trasformazioni di gauge:] sotto l'azione degli elementi del gruppo
         di gauge $U(1)$ i campi trasformano come
         \begin{align*}
-            \psi'(x) &= e^{-ie\alpha(x)}\psi(x)\\
-            A^{\mu'}(x) &= A^{\mu}(x) + \dimu \alpha(x);
+            \psi^\prime(x) &= e^{-ie\alpha(x)}\psi(x)\\
+            A^{\mu\prime}(x) &= A^{\mu}(x) + \dimu \alpha(x);
         \end{align*}
     \item[rinormalizzabilit\`a:] compaiono nella lagrangiana soltanto
         termini con dimensione $d \leq 4$.
@@ -88,7 +92,7 @@ componenti fondamentali della teoria.
         gruppo in tale rappresentazione, e $\alpha_a$  i parametri della
         trasformazione
         \begin{equation*}
-            \varphi'(x) = \Omega\varphi = e^{-i \alpha_a t^{a}_{R}}\varphi(x).
+            \varphi^\prime(x) = \Omega\varphi = e^{-i \alpha_a t^{a}_{R}}\varphi(x).
         \end{equation*}
         \`E talvolta utile considerare trasformazioni infinitesime
         \begin{equation*}
@@ -112,7 +116,7 @@ dall'applicazione di una procedura quasi meccanica:
         A questo punto i termini con le derivate non trasformano pi\`u come
         i campi e la lagrangiana non \`e pi\`u invariante:
         \begin{equation}
-            (\dimu\varphi)' = (\dimu \Omega)\varphi +
+            (\dimu\varphi)^\prime = (\dimu \Omega)\varphi +
             \Omega(\dimu\varphi)\neq \Omega(\dimu \varphi).
             \label{eq:trasformazione_derivata}
         \end{equation}
@@ -128,20 +132,20 @@ dall'applicazione di una procedura quasi meccanica:
         dell'algebra di Lie.
         Imponendo quindi la legge di trasformazione gi\`a valida per i campi
         \begin{equation*}
-            (\Dimu \varphi)' = \Omega \Dimu \varphi\\
+            (\Dimu \varphi)^\prime = \Omega \Dimu \varphi\\
         \end{equation*}
         \begin{equation*}
-            (\dimu + A'_{\mu})\Omega \varphi = (\dimu \Omega)\varphi +
-            \Omega (\dimu \varphi) + A'_\mu\Omega\varphi = \Omega(\dimu
+            (\dimu + A^\prime_{\mu})\Omega \varphi = (\dimu \Omega)\varphi +
+            \Omega (\dimu \varphi) + A^\prime_\mu\Omega\varphi = \Omega(\dimu
             \varphi) + \Omega A_\mu \varphi\\
         \end{equation*}
         \begin{equation*}
-            (A'_\mu\Omega - \Omega A_\mu + \dimu \Omega)\varphi = 0
+            (A^\prime_\mu\Omega - \Omega A_\mu + \dimu \Omega)\varphi = 0
         \end{equation*}
         otteniamo la legge di trasformazione per i campi di gauge,
         moltiplicando a destra per $\Omega^{-1}$:
         \begin{equation}
-            A_{\mu}' = \Omega A_\mu \Omega^{-1} - (\dimu \Omega)
+            A_{\mu}^\prime = \Omega A_\mu \Omega^{-1} - (\dimu \Omega)
             \Omega^{-1}.
             \label{eq:trasformazione_campi_gauge}
         \end{equation}
@@ -150,12 +154,12 @@ dall'applicazione di una procedura quasi meccanica:
         termini dei campi $A_{a\mu}$ scrivendola per trasformazioni
         infinitesime:
         \begin{align}
-            i A'_{a\mu}t^a &= (1 - i \alpha_b t^{b}) A_{c\mu}t^{c}(1 + i
+            i A^\prime_{a\mu}t^a &= (1 - i \alpha_b t^{b}) A_{c\mu}t^{c}(1 + i
             \alpha_b t^{b}) - [\dimu(1 - i \alpha_a t^{a})(1 + \cdots)]\nonumber\\
             &= i A_{a\mu}t^a + \alpha_a A_{c\mu}[t^b, t^c] + i \dimu \alpha_a
             t^a\nonumber\\
             &= i(A_{a\mu} + \dimu \alpha_a)t^a + i f^{bc}_a t^a\nonumber\\
-            A'_{a\mu} &= A_{a\mu} + \dimu \alpha_a + f^{bc}_a \alpha_b
+            A^\prime_{a\mu} &= A_{a\mu} + \dimu \alpha_a + f^{bc}_a \alpha_b
             A_{c\mu}.\label{eq:trasformazione_infinitesima_gauge}
         \end{align}
         Vediamo dunque che, rispetto al caso abeliano dell'elettrodinamica
@@ -176,8 +180,8 @@ dall'applicazione di una procedura quasi meccanica:
 
         Nel caso non abeliano:
         \begin{align*}
-            ([\Dimu, \Dinu]\varphi)' &= \Omega [\Dimu, \Dinu]\varphi = \Omega [\Dimu, \Dinu]
-            \Omega^{-1}\varphi'\\
+            ([\Dimu, \Dinu]\varphi)^\prime &= \Omega [\Dimu, \Dinu]\varphi = \Omega [\Dimu, \Dinu]
+            \Omega^{-1}\varphi^\prime\\
             [\Dimu, \Dinu]\varphi &= (\dimu + A_\mu)(\dinu + A_\nu) \varphi -
             (\mu \leftrightarrow \nu)\\
             &= \underbrace{\dimu \dinu \varphi + A_\nu(\dimu \varphi) + A_\mu(\dinu
@@ -185,7 +189,7 @@ dall'applicazione di una procedura quasi meccanica:
             A_\nu \varphi - (\mu \leftrightarrow \nu)\\
             &= \underbrace{\{ (\dimu A_\nu - \dinu A_\mu) + [A_\mu, A_\nu]
             \}}_{\mathop{:}= F_{\mu\nu}} \varphi\\
-            F_{\mu\nu}' = \Omega F_{\mu\nu} \Omega^{-1}
+            F_{\mu\nu}^\prime = \Omega F_{\mu\nu} \Omega^{-1}
         \end{align*}
         O, in termini dei campi $A_{a\mu}$
         \begin{equation}
@@ -231,11 +235,11 @@ campi $\varphi$ a spin $0$ e $\nicefrac{1}{2}$ e i campi vettoriali. Infatti
 ridefinendo i campi $A_\mu$:
 \begin{align*}
     A_{a\mu} &\longrightarrow g A_{a\mu}\\
-    \lagr & \longrightarrow \lagr(\varphi, \Dimu'\varphi) -
-    \dfrac{1}{4}F'_{a\mu\nu}F^{'\mu\nu}\\
+    \lagr & \longrightarrow \lagr(\varphi, \Dimu^\prime\varphi) -
+    \dfrac{1}{4}F^\prime_{a\mu\nu}F^{\prime\mu\nu}\\
     &\text{dove}\\
-    \Dimu'\varphi &= (\dimu + i g A_{a\mu} t^{a})\varphi\\
-    F'_{a\mu\nu} &= \dimu A_{a\nu} - \dinu A_{a\mu} - gf^{bc}_a
+    \Dimu^\prime\varphi &= (\dimu + i g A_{a\mu} t^{a})\varphi\\
+    F^\prime_{a\mu\nu} &= \dimu A_{a\nu} - \dinu A_{a\mu} - gf^{bc}_a
     A_{b\mu}A_{c\nu}
 \end{align*}
 Quest'ultimo termine mette anche in evidenza il fatto che, in una teoria non
@@ -245,7 +249,7 @@ abeliana, compaiono dei termini di interazione tra bosoni di gauge.
         \input{3bos}
         \input{4bos}
     \end{center}
-    \caption{Interazioni a tre e quattro bosoni, che derivano dai nuovi
+    \caption{interazioni a tre e quattro bosoni, che derivano dai nuovi
     termini nella lagrangiana per teorie non abeliane.}
     \label{fig:3bos}
 \end{figure}
@@ -257,7 +261,7 @@ abeliana, compaiono dei termini di interazione tra bosoni di gauge.
         oggetto di dimensione $3$ e possiamo scrivere esplicitamente
         l'indice \emph{di colore} $c = 1, 2, 3$. 
         \begin{equation*}
-            q_c' = e^{-i \alpha_a \lambda^a}q_c.
+            q_c^\prime = e^{-i \alpha_a \lambda^a}q_c.
         \end{equation*} I generatori $\lambda_a$ sono le otto matrici di
         Gell-Mann.
 \end{description}
@@ -310,8 +314,8 @@ componenti, la simmetria $U(1)$ diventa una simmetria per rotazioni $SO(2)$.
 \begin{align*}
     \varphi &= \dfrac{1}{\sqrt{2}}(\varphi_1 + i \varphi_2)\\
     \begin{pmatrix}
-        \varphi_1'\\
-        \varphi_2'
+        \varphi_1^\prime\\
+        \varphi_2^\prime
     \end{pmatrix} &= 
     \begin{pmatrix}
         \cos \alpha & \sin \alpha \\
@@ -353,31 +357,31 @@ la lagrangiana intorno a questo minimo:
     + \dfrac{\partial V}{\partial \varphi_2}\rvert_{2.}(\varphi_2 -
     v_2)}_{= 0\text{ nel minimo}}
     + \dfrac{1}{2}\dfrac{\partial^2 V}{\partial \varphi_i\partial \varphi_j}|_{2.}
-    \underbrace{(\varphi_i - v_i)}_{=\mathop:\varphi_i'}\underbrace{(\varphi_j -
-    v_j)}_{=\mathop:\varphi_j'}
+    \underbrace{(\varphi_i - v_i)}_{=\mathop:\varphi_i^\prime}\underbrace{(\varphi_j -
+    v_j)}_{=\mathop:\varphi_j^\prime}
 \end{equation*}
-Con le ridefinizioni dei campi $\varphi_i'$ possiamo scrivere la lagrangiana
+Con le ridefinizioni dei campi $\varphi_i^\prime$ possiamo scrivere la lagrangiana
 come
 \begin{align*}
     \lagr &= 
-    \dfrac{1}{2}\partial_\mu \varphi_1'\partial^\mu \varphi_1' +
-    \dfrac{1}{2}\partial_\mu \varphi_2'\partial^\mu \varphi_2' +
+    \dfrac{1}{2}\partial_\mu \varphi_1^\prime\partial^\mu \varphi_1^\prime +
+    \dfrac{1}{2}\partial_\mu \varphi_2^\prime\partial^\mu \varphi_2^\prime +
     \dfrac{1}{2}2\lambda v^2
     \begin{pmatrix}
-        \varphi_1' & \varphi_2'
+        \varphi_1^\prime & \varphi_2^\prime
     \end{pmatrix}
     \begin{pmatrix}
         \cos^2 \theta & \cos\theta \sin\theta\\
         \cos\theta \sin\theta & \sin^2 \theta
     \end{pmatrix}
     \begin{pmatrix}
-        \varphi_1'\\
-        \varphi_2'
+        \varphi_1^\prime\\
+        \varphi_2^\prime
     \end{pmatrix}\\
     &= 
-    \dfrac{1}{2}\partial_\mu \varphi_1'\partial^\mu \varphi_1' +
-    \dfrac{1}{2}\partial_\mu \varphi_2'\partial^\mu \varphi_2' +
-    \lambda v^2(\cos\theta \varphi_1' + \sin\theta \varphi_2')^2
+    \dfrac{1}{2}\partial_\mu \varphi_1^\prime\partial^\mu \varphi_1^\prime +
+    \dfrac{1}{2}\partial_\mu \varphi_2^\prime\partial^\mu \varphi_2^\prime +
+    \lambda v^2(\cos\theta \varphi_1^\prime + \sin\theta \varphi_2^\prime)^2
 \end{align*}
 Con un cambio di variabili finale possiamo ridefinire i campi e la
 lagrangiana con
@@ -391,8 +395,8 @@ lagrangiana con
         -\sin \theta & \cos \theta
     \end{pmatrix}
      \begin{pmatrix}
-        \varphi_1'\\
-        \varphi_2'
+        \varphi_1^\prime\\
+        \varphi_2^\prime
     \end{pmatrix}\\
 \lagr &=
     \dfrac{1}{2}(\partial_\mu \varphi_1\partial^\mu \varphi_1 +
@@ -460,11 +464,11 @@ Goldstone. Possiamo ora enunciare il teorema in generale.
 
         La matrice delle derivate seconde del potenziale diventa ovviamente
         la matrice di massa. Espandendo intorno alla configurazione di
-        equilibrio $\varphi_i = v_i$ e ridefinendo $\varphi_i' = \varphi_i -
+        equilibrio $\varphi_i = v_i$ e ridefinendo $\varphi_i^\prime = \varphi_i -
         v_i$, otteniamo le equazioni del moto:
         \begin{equation*}
             \left( \box \delta_{ij} + \dfrac{\partial^2 V}{\partial
-            \varphi_i \partial \varphi_j}|_{\varphi = v} \right) \varphi'_j
+            \varphi_i \partial \varphi_j}|_{\varphi = v} \right) \varphi^\prime_j
             = 0
         \end{equation*}
         Da cui si vede che il sistema ha $\dim(G) - \dim(H)$ particelle a
@@ -516,8 +520,8 @@ paragrafo~\ref{goldstone} per il teorema di Goldstone. Sia $\varphi$ un
 campo scalare complesso e $G = U(1)$ il gruppo di invarianza locale. Le
 trasformazioni sono dunque
 \begin{align*}
-    \varphi'(x) &= e^{-i \alpha(x)}\varphi(x)\\
-    A_\mu'(x) &= A_\mu(x) - \dfrac{1}{g}\partial_\mu \alpha(x).
+    \varphi^\prime(x) &= e^{-i \alpha(x)}\varphi(x)\\
+    A_\mu^\prime(x) &= A_\mu(x) - \dfrac{1}{g}\partial_\mu \alpha(x).
 \end{align*}
 Ricordiamo anche la lagrangiana
 \begin{align*}
@@ -606,8 +610,8 @@ $G = SU(2) \times U(1)$. I generatori $T^1,T^2, T^3, Y$ soddisfano alle regole d
     [T^a, Y] &= 0.
 \end{align*}
 \item[campi di materia a spin $0$:] devono realizzare la rottura spontanea
-    di $SU(2)\times U(1)$ in modo da dare massa ai bosoni $\mathrm{W^{\pm}}$ e
-    $\mathrm{Z}$, con un'invarianza residua $U(1)_{em}$ in modo da lasciare
+    di $SU(2)\times U(1)$ in modo da dare massa ai bosoni $\wboson^{\pm}$ e
+    $\zboson$, con un'invarianza residua $U(1)_{em}$ in modo da lasciare
     il fotone a massa nulla.
 
     La scelta pi\`u semplice \`e un doppietto complesso di Higgs con
@@ -619,7 +623,7 @@ $G = SU(2) \times U(1)$. I generatori $T^1,T^2, T^3, Y$ soddisfano alle regole d
             \varphi^+ \\
             \varphi^0
         \end{pmatrix}\\
-        \varphi' &= e^{-i \alpha_a \frac{\sigma^a}{2}}e^{-i\beta
+        \varphi^\prime &= e^{-i \alpha_a \frac{\sigma^a}{2}}e^{-i\beta
         \frac{1}{2}}\varphi
     \end{align*}
     Non \`e ora restrittivo, percorrendo le valli di minimo, raggiungere un
@@ -669,7 +673,7 @@ corrispondente legge di trasformazione:
     \\
     \delta W_{a\mu} &= \varepsilon_{abc}\alpha^b W^c_\mu +
     \dfrac{\dimu \alpha_a}{g}\\
-    \delta B_\mu &= \dfrac{\dimu \beta}{g'}.
+    \delta B_\mu &= \dfrac{\dimu \beta}{g^\prime}.
 \end{align*}
 Scriviamo subito la lagrangiana
 \begin{align*}
@@ -678,12 +682,12 @@ Scriviamo subito la lagrangiana
     (D_\mu \varphi)^\dagger (D^\mu \varphi) - V(\varphi)\\
     \\
     \Dimu &= \dimu + i g W_{a\mu}\dfrac{\sigma^a}{2} + i
-    \dfrac{g'}{2}B_\mu\\
+    \dfrac{g^\prime}{2}B_\mu\\
     V(\varphi) &= \mu^2 \varphi^\dagger \varphi + \lambda (\varphi^\dagger
     \varphi)^2
 \end{align*}
 Scegliamo, come nell'esempio, il minimo con $\langle \varphi \rangle = (0,
-v/\sqrt{2}$.
+v/\sqrt{2})$.
 Bisogna scegliere una parametrizzazione per $\varphi$ per leggere masse e
 accoppiamenti
 \begin{equation*}
@@ -708,16 +712,16 @@ Da cui si legge subito che il bosone di Higgs ha una massa $m_h = 2\lambda
 v^2$. Il termine cinetico d\`a ora una massa ai bosoni vettori
 \begin{align*}
     \Dimu &= \dimu + i g W_{a\mu}\dfrac{\sigma^a}{2} + i
-    \dfrac{g'}{2}B_\mu\\
+    \dfrac{g^\prime}{2}B_\mu\\
     \Dimu \varphi &= \left\{ \dfrac{\dimu h}{\sqrt{2}}
     + i g W_{a\mu}\dfrac{\sigma^a}{2}\dfrac{v + h}{\sqrt{2}}
-    + i g' \dfrac{v + h}{2 \sqrt{2}} B_\mu \right\}
+    + i g^\prime \dfrac{v + h}{2 \sqrt{2}} B_\mu \right\}
     \begin{pmatrix}
         0\\
         1
     \end{pmatrix}\\
     &= \left\{ \dfrac{\dimu h}{\sqrt{2}}
-    + \dfrac{i}{2}\dfrac{v + h}{\sqrt{2}}(g W_{a\mu}\sigma^a + g' B_\mu) \right\}
+    + \dfrac{i}{2}\dfrac{v + h}{\sqrt{2}}(g W_{a\mu}\sigma^a + g^\prime B_\mu) \right\}
     \begin{pmatrix}
         0\\
         1
@@ -731,7 +735,7 @@ v^2$. Il termine cinetico d\`a ora una massa ai bosoni vettori
         0 & 1
     \end{pmatrix}
     \dfrac{(v + h)^2}{8}
-    (g W_a \sigma^a + g' B)^2
+    (g W_a \sigma^a + g^\prime B)^2
     \begin{pmatrix}
         0\\
         1
@@ -741,30 +745,30 @@ v^2$. Il termine cinetico d\`a ora una massa ai bosoni vettori
     \dfrac{1}{2}\partial_\mu h
     \partial^\mu h +
     \dfrac{(v + h)^2}{8}
-    [g W_a \sigma^a + g' B]^2_{22}.
+    [g W_a \sigma^a + g^\prime B]^2_{22}.
 \end{align*}
 Calcoliamo l'elemento di matrice richiesto
 \begin{align*}
-    [g W_a \sigma^a + g' B]^2_{22} &= 
+    [g W_a \sigma^a + g^\prime B]^2_{22} &= 
     \begin{pmatrix}
-        gW_3 + g'B & g(W_1 - iW_2)\\
-        g(W_1 + i W_2) & - g W_3 + g'B
+        gW_3 + g^\prime B & g(W_1 - iW_2)\\
+        g(W_1 + i W_2) & - g W_3 + g^\prime B
     \end{pmatrix}^2_{22}\\
     &= 
     \begin{pmatrix}
-        g (W_1 + i W_2) & - g W_3 + g'B
+        g (W_1 + i W_2) & - g W_3 + g^\prime B
     \end{pmatrix}
     \begin{pmatrix}
         g(W_1 - i W_2)\\
-        - g W_3 + g'B
+        - g W_3 + g^\prime B
     \end{pmatrix}\\
-    &= g^2(W_1^2 + W_2^2) + (gW_3 - g'B)^2.
+    &= g^2(W_1^2 + W_2^2) + (gW_3 - g^\prime B)^2.
 \end{align*}
 \begin{definition}
     [angolo di Weinberg]
     Si definisce l'angolo $\theta$ di Weinberg con
     \begin{equation*}
-        \tan \theta \mathop:= \dfrac{g'}{g}
+        \tan \theta \mathop:= \dfrac{g^\prime}{g}
     \end{equation*}
 \end{definition}
 Introduciamo delle nuove combinazioni dei campi
@@ -779,28 +783,139 @@ In termini di questi quattro campi possiamo riscrivere:
     \dfrac{1}{2}\partial_\mu h \partial^\mu h +
     \dfrac{g^2(v + h)^2}{4}
     W_\mu^+W^{-\mu} +
-    (g^2 + g^{'2})
+    (g^2 + g^{\prime2})
     \dfrac{(v + h)^2}{8}
     Z_\mu Z^\mu.
 \end{equation*}
 Da questa lagrangiana possiamo leggere le masse:
 \begin{align*}
-    m_W^2 &= \dfrac{g^2 v^2}{4}\\
-    m_Z^2 &= \dfrac{(g^2 + g^{'2})v^2}{4}\\
+    m_\wboson^2 &= \dfrac{g^2 v^2}{4}\\
+    m_\zboson^2 &= \dfrac{(g^2 + g^{\prime 2})v^2}{4}\\
     m_A^2 &= 0\\
-    m_H^2 &= 2\lambda v^2
+    m_h^2 &= 2\lambda v^2
 \end{align*}
 Si noti che, come conseguenza diretta del fatto che il campo di Higgs
 trasforma come un doppietto, abbiamo una relazione tra le masse dei bosoni
-$m_W = m_Z \cos \theta$. Tale relazione \`e verificata con una precisione
+$m_\wboson = m_\zboson \cos \theta$. Tale relazione \`e verificata con una precisione
 sperimentale del per mille.
 \begin{exercise}
     Trovare le interazioni che derivano dalla lagrangiana e dimostrare che
     vale
     \begin{equation*}
-        g \sin \theta = g' \cos \theta = e.
+        g \sin \theta = g^\prime \cos \theta = e.
     \end{equation*}
 \end{exercise}
+\begin{exercise}
+    Calcolare la larghezza del decadimento $h \rightarrow \wboson^+ \wboson^-$.
+\begin{figure}[h]
+    \begin{center}
+        \input{hWW}
+    \end{center}
+    \caption{grafico di Feynman al primo ordine per il decadimento $h \rightarrow \wboson^+ \wboson^-$.}
+    \label{fig:hWW}
+\end{figure}
+\begin{align*}
+    d\Gamma &= \dfrac{1}{2 m_h} \lvert \bar{\mathscr{M}} \rvert ^2 d \varphi\\
+    d\varphi &= \dfrac{1}{16 \pi^2} \dfrac{\lvert p \rvert}{m_h} d \Omega
+\end{align*}
+Calcoliamo quindi l'elemento di matrice invariante:
+\begin{align*}
+    \mathscr{M} &= \dfrac{i}{2} g^2 v \, \eta_{\mu\nu}
+    \varepsilon^{\mu}_{\lambda}(p_1) \varepsilon^{\nu
+    *}_{\lambda^\prime}(p_2)\\
+    \overline{\lvert \mathscr{M} \rvert}^2
+    &= \sum_{\lambda \lambda^\prime}^{}
+    \dfrac{g^4 v^2}{4}
+    \varepsilon^{\mu}_{\lambda}(p_1) \varepsilon^{\nu *}_{\lambda}(p_1)     
+    \varepsilon_{\mu\lambda^\prime}(p_2) \varepsilon^{*}_{\nu\lambda^\prime}(p_2)\\
+    &= 
+    \dfrac{g^4 v^2}{4}
+    \left( \eta^{\mu\nu} - \dfrac{p_1^\mu p_1^\nu}{m^2} \right)
+    \left( \eta_{\mu\nu} - \dfrac{p_{1\mu} p_{2\nu}}{m^2} \right)\\
+    &= 
+    \dfrac{g^4 v^2}{4}
+    \left[ 4 - \dfrac{p_1^2}{m^2} - \dfrac{p_2^2}{m^2} +
+    \dfrac{(p_{1\mu}p^{\mu}_2)^2}{m^4}\right] \qquad [p^2 = m^2]\\
+    &= 
+    \dfrac{g^4 v^2}{4}
+    \left[ 4 - 2 +
+    \dfrac{(p_1\cdot p_2)^2}{m^4}\right]\\
+\end{align*}
+Nel sistema di riferimento del centro di massa, $p_1 \cdot p_2 = m^2 + 2
+\bar p ^2$. Ricordiamo anche che $m^2 = g^2 v^2 / 4$. Definiamo infine
+$x = 4m^2 / m_h^2$, in modo da poter scrivere $|\bar p| = m_h\sqrt{1 - x}/2$.
+\begin{align*}
+    \overline{\lvert \mathscr{M} \rvert}^2
+    &= 
+    \dfrac{g^4 v^2}{4}
+    \left[ 2 + \dfrac{(m^2 + \bar p^2)^2}{m^4} \right]\\
+    &= \dfrac{m_h^4}{v^2} \left( 1 - x + \dfrac{3}{4}x^2 \right)\\
+    d \Gamma
+    &= 
+    \dfrac{1}{2m_h} \dfrac{m_h^4}{v^2}\left( 1 - x + \dfrac{3}{4}x^2 \right)
+    \dfrac{1}{16 \pi^2} \dfrac{1}{2}\sqrt{1 - x} d\Omega\\
+    \Gamma
+    &= 
+    \dfrac{1}{16\pi}\dfrac{m_h^3}{v^2} \left( 1 - x + \dfrac{3}{4}x^2 \right)\sqrt{1 - x}
+\end{align*}
+\end{exercise}
+\begin{exercise}
+    Dimostrare che per il decadimento $h \rightarrow \zboson\zboson$ vale una formula
+    analoga, sostituendo la massa della $\zboson$ alla massa del $\wboson$.
+    \begin{equation*}
+        \Gamma(h \rightarrow \zboson \zboson) = \dfrac{1}{2} \Gamma(h
+        \rightarrow \wboson \wboson) \quad (\text{con la sostituzione } m_{\zboson} \leftrightarrow
+        m_{\wboson})
+    \end{equation*}
+\end{exercise}
+\subsection{Parte fermionica}
+Cominciamo con una sola generazione di fermioni: $u$, $d$, $\nu$, $e$.
+Scriviamo anche le loro propriet\`a di trasformazione sotto il gruppo di
+gauge $SU(2)_L \times U(1)_Y$.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{r cc}
+        \toprule
+        fermione & $SU(2)_L$ & $U(1)_Y$ \\
+        \midrule
+        $\ell_L = 
+        \begin{pmatrix}
+            \nu_L \\ e_L
+        \end{pmatrix}$
+        & $2$ & $-\nicefrac{1}{2}$\\[.3cm]
+        $e_R$ & $1$ & $-1$ \\[.3cm]
+        $\nu_R$ & \multicolumn{2}{c}{non esiste} \\[.3cm]  
+        $q_L = 
+        \begin{pmatrix}
+            u_L \\ d_L
+        \end{pmatrix}$
+        & $2$ & $+\nicefrac{1}{6}$\\[.3cm]  
+        $u_R$ & $1$ &  $+\nicefrac{2}{3}$\\ [.3cm]  
+        $d_R$ & $1$ &  $-\nicefrac{1}{3}$\\
+        \bottomrule
+    \end{tabular}
+    \caption{propriet\`a di trasformazione dei campi fermionici, per il
+    modello standard con una sola generazione.}
+    \label{tab:fermioni}
+\end{table}
+Al di l\`a dei risultati sperimentali che le confermano, queste propriet\`a
+di trasformazione non si possono scegliere con arbitrariet\`a totale.
+Infatti, la teoria quantistica deve essere priva di anomalie. Si parla di
+\emph{anomalia} quando la teoria quantistica non conserva delle correnti che
+sono invece conservati nel modello classico corrispondente. Altri limiti
+possono venire dalle teorie di grande unificazione.
 
+Per leggere la fisica del settore fermionico, scriviamo le derivate
+covarianti per tutti i nuovi campi.
 
+\begin{align*}
+    \Dimu \ell_L &= 
+    (\dimu + i g W_{a\mu}\dfrac{\sigma^a}{2} - i g^{\prime} B_\mu) \ell_L\\
+    \Dimu e_R &= (\dimu - i g^\prime B_\mu) e_R\\
+    \Dimu q_L &= 
+    (\dimu + i g W_{a\mu}\dfrac{\sigma^a}{2} + \dfrac{i}{6} g^{\prime}
+    B_\mu) q_L\\
+    \Dimu u_R &= (\dimu + \dfrac{2i}{3} g^\prime B_\mu) u_R\\
+    \Dimu d_R &= (\dimu - \dfrac{i}{3} g^\prime B_\mu) d_R\\
+\end{align*}<++>
 \end{document}
