@@ -5,6 +5,7 @@
 \documentclass[italian,a4paper]{article}
 \usepackage{babel}
 \usepackage{feynmf}
+\usepackage{slashed}
 \usepackage{booktabs}
 \usepackage{amssymb,amsmath,amsthm}
 \usepackage{mathrsfs}
@@ -774,7 +775,7 @@ Calcoliamo l'elemento di matrice richiesto
 \end{definition}
 Introduciamo delle nuove combinazioni dei campi
 \begin{align}
-    \label{eq:rotazione_weinberg}
+\label{eq:rotazione_weinberg}
     W^{\pm}_\mu &= \dfrac{W_1 \mp i W_2}{\sqrt{2}}\nonumber\\
     Z_\mu &= \cos \theta W_{3\mu} - \sin \theta B_{\mu}\\
     A_\mu &= \sin \theta W_{3\mu} + \cos \theta B_\mu \nonumber
@@ -999,4 +1000,91 @@ Con le correnti
     J^\mu_{3L} &= \bar{\ell}_L \gamma^\mu \dfrac{\sigma^3}{2}\ell_L +
     \bar{q}_L \gamma^\mu \dfrac{\sigma^3}{2}q_L 
 \end{align*}
+\subsection{La lagrangiana efficace di Fermi}
+Possiamo raccordare i risultati della teoria elettrodebole con la
+lagrangiana efficace di Fermi, con l'interazione a quattro fermioni. Bastano
+tre semplici passaggi.
+Partiamo da una teoria pi\`u semplice come esempio, con un campo bosonico
+$\varphi$ di massa $M$ e un solo campo fermionico $\psi$ di massa $m \ll M$.
+La lagrangiana \`e quindi:
+\begin{equation*}
+    \lagr = \dfrac{1}{2}\partial_\mu \varphi \partial^\mu \varphi -
+    \dfrac{1}{2}M^2 \varphi^2 + i \bar{\psi}\slashed{\partial} \psi
+    - m \bar{\psi}\psi - g \varphi \bar{\psi} \psi.
+\end{equation*}
+\begin{enumerate}
+    \item Scriviamo le equazioni del moto per il campo pesante, che \`e
+        quello da eliminare nella teoria.
+        \begin{equation*}
+            (\square + M^2) \varphi = -g \bar{\psi} \psi.
+        \end{equation*}
+    \item Risolviamo le equazioni nel limite di $E \ll M$, trascurando il
+        termine di energia cinetica, che \`e il $\square$.
+        \begin{equation*}
+            \varphi = -\dfrac{g}{M^2}\bar{\psi}\psi.
+        \end{equation*}
+    \item Sostituiamo nella lagrangiana di partenza:
+        \begin{align*}
+            \lagr_{\text{eff}} &= -\dfrac{1}{2}
+            \dfrac{g^2}{M^2}
+            \bar{\psi}\psi \bar{\psi}\psi
+            +
+            \dfrac{g^2}{M^2}
+            \bar{\psi}\psi \bar{\psi}\psi
+            + \text{termini cinetici}\\
+            &= \dfrac{1}{2}
+            \dfrac{g^2}{M^2}
+            \bar{\psi}\psi \bar{\psi}\psi
+            + \bar{\psi}(i\slashed{\partial} - m) \psi
+        \end{align*}
+        trovando quindi il termine di interazione a quattro fermioni.
+\end{enumerate}
+Applichiamo la procedura alla teoria elettrodebole con lagrangiana:
+\begin{equation*}
+    \lagr_{\text{SM}} = \text{term. cin.} + m_W^2 W_\mu^+
+    W^{-\mu} + \dfrac{1}{2}m_Z^2 Z^\mu Z_\mu
+    - \dfrac{g}{\sqrt{2}}(W^{+}_\mu J^{-\mu} + \text{h.c.})
+    - e A_\mu J^\mu_{\text{EM}}
+    - \dfrac{g}{\cos^2 \theta} Z_\mu J_Z^\mu
+    + \cdots
+\end{equation*}
+\begin{enumerate}
+    \item le equazioni del moto, trascurando le energie cinetiche, d\`anno:
+        \begin{align*}
+            m_W^2 W^{-\mu} &= \dfrac{g}{\sqrt{2}}J^{- \mu}
+             \qquad W^{\pm \mu} = \dfrac{g}{\sqrt{2}m_W^2} J^{\pm \mu}\\
+            m_Z^2 Z^{\mu} &= \dfrac{g}{\cos^2 \theta}J_Z^{\mu}
+             \qquad Z^{\mu} = \dfrac{g}{m_Z^2 \cos^2\theta} J^{\mu}_Z
+             =\dfrac{g}{m_W^2} J^{\mu}_Z  
+        \end{align*}
+    \item otteniamo la lagrangiana efficace, che dipende solo dai campi
+        fermionici e dei fotoni:
+        \begin{equation*}
+            \lagr_{\text{eff}} =
+            -\dfrac{1}{4}F_{\mu\nu}F^{\mu\nu}
+            - e A_\mu J^\mu_{\text{EM}}
+            - \dfrac{g^2}{2m_W^2} J^{+\mu}J_\mu^-
+            - \dfrac{g^2}{2m_Z^2 \cos^2\theta} J_Z^\mu J_{Z\mu}
+            + \cdots
+        \end{equation*}
+        dove si introduce di solito la costante di Fermi.
+        \begin{definition}
+            [costante di Fermi]
+            \begin{equation*}
+                \dfrac{G_F}{\sqrt{2}} \mathop: = \dfrac{g^2}{8m_W^2} =
+                \dfrac{1}{2 v^2}
+            \end{equation*}
+        \end{definition}
+\end{enumerate}
+Possiamo per esempio applicare questa teoria al decadimento del muone,
+determinato dal pezzo di lagrangiana che coinvolge la corrente carica:
+\begin{equation*}
+    \lagr = -\dfrac{G_F}{\sqrt{2}}\bar{e} \gamma^\alpha(1 - \gamma^5) \nu_e
+   \bar{\nu}_\mu\gamma_\alpha(1 - \gamma^5) \mu.
+\end{equation*}
+\subsection{La vita media del muone}
+Il calcolo della vita media del muone \`e importante perch\'e permette di
+ricavare con precisione il valore di $G_F$ che, come abbiamo visto, \`e uno
+dei quattro parametri fondamentali del modello standard.
+
 \end{document}
