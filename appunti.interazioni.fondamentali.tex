@@ -158,7 +158,7 @@ dall'applicazione di una procedura quasi meccanica:
         \begin{align}
             i A^\prime_{a\mu}t^a &= (1 - i \alpha_b t^{b}) A_{c\mu}t^{c}(1 + i
             \alpha_b t^{b}) - [\dimu(1 - i \alpha_a t^{a})(1 + \cdots)]\nonumber\\
-            &= i A_{a\mu}t^a + \alpha_a A_{c\mu}[t^b, t^c] + i \dimu \alpha_a
+            &= i A_{a\mu}t^a + \alpha_b A_{c\mu}[t^b, t^c] + i \dimu \alpha_a
             t^a\nonumber\\
             &= i(A_{a\mu} + \dimu \alpha_a)t^a + i f^{bc}_a t^a\nonumber\\
             A^\prime_{a\mu} &= A_{a\mu} + \dimu \alpha_a + f^{bc}_a \alpha_b
@@ -180,10 +180,12 @@ dall'applicazione di una procedura quasi meccanica:
     \item si completa la lagrangiana con un termine cinetico per i campi di
         gauge, analogamente al termine $F_{\mu\nu}F^{\mu\nu}$ in QED.
 
-        Nel caso non abeliano:
+        Anche nel caso non abeliano abbiamo che $([\Dimu,
+        \Dinu]\varphi)^\prime = \Omega [\Dimu, \Dinu]\varphi$. Infatti si
+        vede che il commutatore in realt\`a non \`e un operatore
+        differenziale, e la trasformazione viene solo dal campo. Quindi il
+        fattore moltiplicativo $[\Dimu, \Dinu]$ deve essere invariante:
         \begin{align*}
-            ([\Dimu, \Dinu]\varphi)^\prime &= \Omega [\Dimu, \Dinu]\varphi = \Omega [\Dimu, \Dinu]
-            \Omega^{-1}\varphi^\prime\\
             [\Dimu, \Dinu]\varphi &= (\dimu + A_\mu)(\dinu + A_\nu) \varphi -
             (\mu \leftrightarrow \nu)\\
             &= \underbrace{\dimu \dinu \varphi + A_\nu(\dimu \varphi) + A_\mu(\dinu
