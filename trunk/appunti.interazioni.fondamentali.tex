@@ -471,7 +471,7 @@ Goldstone. Possiamo ora enunciare il teorema in generale.
         equilibrio $\varphi_i = v_i$ e ridefinendo $\varphi_i^\prime = \varphi_i -
         v_i$, otteniamo le equazioni del moto:
         \begin{equation*}
-            \left( \box \delta_{ij} + \dfrac{\partial^2 V}{\partial
+            \left( \square \delta_{ij} + \dfrac{\partial^2 V}{\partial
             \varphi_i \partial \varphi_j}|_{\varphi = v} \right) \varphi^\prime_j
             = 0
         \end{equation*}
@@ -1116,11 +1116,11 @@ campo del fotone.
 \begin{align*}
     \lagr_2 &= -\dfrac{1}{4}F_{\mu\nu}F^{\mu\nu} - \dfrac{\xi}{2}(\dimu
     A^\mu)^2\\
-    &= \dfrac{1}{2}A_\mu(\box g^{\mu\nu} - \partial^\mu \partial^\nu) A_\nu
-    +\dfrac{\xi}{2}A_\mu\partial^\mu \partial^\nu A_\nu\\                                      
+    &= \dfrac{1}{2}A_\mu(\square g^{\mu\nu} - \partial^\mu \partial^\nu) A_\nu
+    +\dfrac{\xi}{2} A_\mu\partial^\mu \partial^\nu A_\nu\\                                      
     &= \text{(Fourier) } 
-    \dfrac{1}{2}A_\mu(\box g^{\mu\nu} - q^\mu q^\nu) A_\nu
-    +\dfrac{\xi}{2}A_\mu q^\mu q^\nu A_\nu
+    \dfrac{1}{2}A_\mu(\square g^{\mu\nu} - q^\mu q^\nu) A_\nu
+    +\dfrac{\xi}{2} A_\mu q^\mu q^\nu A_\nu
 \end{align*}
 Il propagatore vale dunque
 \begin{align*}
@@ -1136,5 +1136,34 @@ Con la correzione di aggiunge a questo termine
     \dfrac{q^\mu q^\nu}{q^2})
 \end{equation*}
 Dove $F_{\gamma\gamma}$ \`e un termine divergente. Occorre dunque
-rinormalizzare il campo $A_\mu \rightarrow \sqrt{Z_3}A_\mu$.
+rinormalizzare il campo $A_\mu \rightarrow \sqrt{Z_3}A_\mu$, con $Z_3 = 1 +
+\delta Z_3$ che deve cancellare la parte divergente di $F$.
+\begin{equation*}
+    i(1 + \delta Z_3 + F_{\gamma\gamma}(q^2)) q^2 (g^{\mu\nu} +
+    \dfrac{q^\mu q^\nu}{q^2}
+\end{equation*}
+Imponiamo, come condizione di rinormalizzazione, che il campio abbia la
+stessa normalizzazione che aveva a livello albero, ovvero
+\begin{align*}
+    \delta Z_3 &= - F_{\gamma\gamma}(0)\\
+    \alpha(q^2) &= \dfrac{\alpha}{1 - F_{\gamma\gamma}(0) +
+    F_{\gamma\gamma}(q^2)}\\
+    &= \dfrac{\alpha}{1 - \Delta \alpha}.
+\end{align*}
+Possiamo calcolare la variazione $\Delta\alpha$ come somma di un contributo
+leptonico e un contributo adronico. Quest'ultimo è difficile da calcolare
+perch\'e la cromodinamica quantistica non ammette uno sviluppo perturbativo
+a queste energie, e vale $\Delta\alpha_{\text{had}}(m_\zboson^2) \approx
+0.03$. Il contributo leptonico si pu\`o invece calcolare esattamente e vale
+\begin{equation*}
+    \Delta \alpha_{\text{lep}}(q^2) = \dfrac{e^2}{4\pi^2}\int_0^1 x(1 - x)
+    \sum_l \log \dfrac{m_l ^ 2 - x ( 1 - x ) m_\zboson^2}{m_l ^ 2} \approx
+    \dfrac{\alpha}{3\pi} \sum_l \log \dfrac{m_\zboson^2}{m_l^2} \approx
+    0.0134
+\end{equation*}
+Da cui si ricava
+\begin{equation*}
+    \alpha(m_\zboson{}^2) \approx \dfrac{1}{128.8}.
+\end{equation*}
+
 \end{document}
