@@ -1088,5 +1088,53 @@ determinato dal pezzo di lagrangiana che coinvolge la corrente carica:
 Il calcolo della vita media del muone \`e importante perch\'e permette di
 ricavare con precisione il valore di $G_F$ che, come abbiamo visto, \`e uno
 dei quattro parametri fondamentali del modello standard.
-
+\section{Test di precisione del modello standard}
+Sono stati misurati con grande precisione sperimentale i parametri
+fondamentali del modello standard:
+\begin{align*}
+    \Gamma(\zboson \rightarrow e^+ e^-) &= 83.925(86) MeV\\
+    \sin^2\theta_{\wboson\text{,lep}} &= 0.23153(16)\\
+    g_{v}^{e} &=  -0.03783(41)
+\end{align*}
+Un tale livello di accuratezza sperimentale, dell'ordine del per mille
+richiede di correggere le previsioni teoriche con grafici radiativi. Infatti
+$\alpha/\pi$ \`e dell'ordine del per cento.
+Ci\`o \`e molto interessante, perch\'e nei \emph{loop} ci sono anche le
+particelle non ancora rivelate direttamente. Dai test di precisione del
+modello standard \`e quindi possibile ricavare informazioni sulla massa del
+bosone di Higgs.
+\subsection{Evoluzione di $\alpha$}
+\begin{figure}[h]
+    \begin{center}
+        \input{propagatorefotone}
+    \end{center}
+    \caption{correzioni al propagatore del fotone.}
+    \label{fig:propagatorefotone}
+\end{figure}
+Bisogna invertire la parte quadratica della lagrangiana che dipende dal
+campo del fotone.
+\begin{align*}
+    \lagr_2 &= -\dfrac{1}{4}F_{\mu\nu}F^{\mu\nu} - \dfrac{\xi}{2}(\dimu
+    A^\mu)^2\\
+    &= \dfrac{1}{2}A_\mu(\box g^{\mu\nu} - \partial^\mu \partial^\nu) A_\nu
+    +\dfrac{\xi}{2}A_\mu\partial^\mu \partial^\nu A_\nu\\                                      
+    &= \text{(Fourier) } 
+    \dfrac{1}{2}A_\mu(\box g^{\mu\nu} - q^\mu q^\nu) A_\nu
+    +\dfrac{\xi}{2}A_\mu q^\mu q^\nu A_\nu
+\end{align*}
+Il propagatore vale dunque
+\begin{align*}
+    \left[ -iq^2(g^{\mu\nu} - \dfrac{q^\mu q^\nu}{q^2}) -i \xi q^2
+    \dfrac{q^\mu q^\nu}{q^2}\right]^{-1} = 
+    -\dfrac{i}{q^2}(g^{\mu\nu} - \dfrac{q^\mu q^\nu}{q^2}) - \dfrac{i}{\xi
+    q^2} \dfrac{q^\mu q^\nu}{q^2}
+\end{align*}
+Con la correzione di aggiunge a questo termine
+\begin{equation*}
+    -i \Pi^{\mu\nu}_{\gamma\gamma}(q) \text{ con } 
+    \Pi^{\mu\nu}_{\gamma\gamma}(q) = F_{\gamma\gamma}(q^2)q^2(g^{\mu\nu} -
+    \dfrac{q^\mu q^\nu}{q^2})
+\end{equation*}
+Dove $F_{\gamma\gamma}$ \`e un termine divergente. Occorre dunque
+rinormalizzare il campo $A_\mu \rightarrow \sqrt{Z_3}A_\mu$.
 \end{document}
