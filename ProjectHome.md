@@ -1,0 +1,1 @@
+presi al corso di Feruglio
